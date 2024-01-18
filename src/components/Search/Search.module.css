@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.searchInput {
+  padding: 10px;
+  font-size: 16px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .searchInput {
+    width: 80%;
+  }
+}
