@@ -39,10 +39,9 @@ const Search = () => {
           <div className={styles.userItemContainer}>
             <ul>
               {users.map((user) => (
-                // <li key={user.id} onClick={() => console.log(user)}>
-                //   {user.login}
-                // </li>
-                <UserItem username={user.login} />
+                <div key={user.id}>
+                  <UserItem username={user.login} photoUrl={user.avatar_url} />
+                </div>
               ))}
             </ul>
           </div>
