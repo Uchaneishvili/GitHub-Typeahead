@@ -10,8 +10,8 @@ const Search = () => {
     const fetchUsers = async () => {
       try {
         const response = await getUsers(query)
-
-        setUsers(response.data.items)
+        const data = await response.json()
+        setUsers(data.items)
       } catch (error) {
         console.error('Error fetching users:', error)
       }
