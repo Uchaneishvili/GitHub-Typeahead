@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import styles from './Search.module.css'
+import { getUsers } from '../../services/UserService'
 
 const Search = () => {
   const [query, setQuery] = useState('')
@@ -9,9 +9,7 @@ const Search = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(
-          `https://api.github.com/search/users?q=${query}`
-        )
+        const response = await getUsers(query)
 
         setUsers(response.data.items)
       } catch (error) {
