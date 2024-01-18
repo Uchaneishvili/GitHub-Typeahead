@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Search.module.css'
 import { getUsers } from '../../services/UserService'
+import UserItem from '../UserItem/UserItem'
 
 const Search = () => {
   const [query, setQuery] = useState('')
@@ -23,8 +24,8 @@ const Search = () => {
   }, [query])
 
   return (
-    <div>
-      <div className={styles.searchContainer}>
+    <div className={styles.container}>
+      <div className={styles.innerContainer}>
         <input
           className={styles.searchInput}
           type='text'
@@ -33,13 +34,20 @@ const Search = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id} onClick={() => console.log(user)}>
-            {user.login}
-          </li>
-        ))}
-      </ul>
+      {users.length > 0 && (
+        <div className={styles.innerContainer}>
+          <div className={styles.userItemContainer}>
+            <ul>
+              {users.map((user) => (
+                // <li key={user.id} onClick={() => console.log(user)}>
+                //   {user.login}
+                // </li>
+                <UserItem username={user.login} />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
