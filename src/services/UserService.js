@@ -1,4 +1,4 @@
-const GITHUB_ACCESS_TOKEN = `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`
+const GITHUB_ACCESS_TOKEN = process.env.REACT_APP_GITHUB_ACCESS_TOKEN
 
 export const getUsers = async (query) => {
   return await fetch(`https://api.github.com/search/users?q=${query}`, {
