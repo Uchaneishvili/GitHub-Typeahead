@@ -1,0 +1,24 @@
+.footer {
+  background-color: #f6f8fa;
+  color: #1f2328;
+  padding: 16px;
+  text-align: center;
+  border-top: solid 1px #d0d7de;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .footer {
+    padding: 6px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0.9rem !important;
+  }
+}

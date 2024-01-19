@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ul {
@@ -15,4 +16,16 @@ li {
   margin-bottom: 8px;
   cursor: pointer;
   border: none;
+}
+
+main {
+  padding: 15px;
+  min-height: calc(100vh - 200px);
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 7vw;
+  }
 }
