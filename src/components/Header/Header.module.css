@@ -21,6 +21,10 @@
 .titleContainer > span {
   font-weight: 500;
 }
+
+.logoContainer > img {
+  width: 40px;
+}
 @media (max-width: 600px) {
   .header {
     padding: 5px;

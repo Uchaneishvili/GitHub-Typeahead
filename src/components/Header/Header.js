@@ -6,11 +6,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.innerContainer}>
         <div className={styles.logoContainer}>
-          <img
-            src='./assets/GitHub_Logo_Animation.gif'
-            alt='GitHub'
-            width={40}
-          />
+          <img src='./assets/GitHub_Logo_Animation.gif' alt='GitHub' />
         </div>
         <div className={styles.titleContainer}>
           <h4>Github Typeahead</h4>

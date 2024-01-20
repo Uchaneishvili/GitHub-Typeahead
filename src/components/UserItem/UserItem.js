@@ -8,8 +8,14 @@ const UserItem = ({ username, photoUrl }) => {
   useEffect(() => {
     const img = new Image()
     img.src = photoUrl
+
+    // Event handler: Triggered when the image successfully loads
     img.onload = () => {
       setLoader(true)
+    }
+
+    return () => {
+      img.onload = null
     }
   }, [photoUrl])
   return (
