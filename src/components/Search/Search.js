@@ -2,24 +2,27 @@ import React, { useState, useEffect } from 'react'
 import styles from './Search.module.css'
 import { getUsers } from '../../services/UserService'
 import UserItem from '../UserItem/UserItem'
+import { useDebounceFn } from '../../hooks/Debounce'
 
 const Search = () => {
   const [query, setQuery] = useState('')
   const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await getUsers(query)
-        const data = await response.json()
-        setUsers(data.items)
-      } catch (error) {
-        console.error('Error fetching users:', error)
-      }
+  const fetchUsers = async () => {
+    try {
+      const response = await getUsers(query)
+      const data = await response.json()
+      setUsers(data.items)
+    } catch (error) {
+      console.error('Error fetching users:', error)
     }
+  }
 
+  const debouncedFetchUsers = useDebounceFn(fetchUsers, 300)
+
+  useEffect(() => {
     if (query) {
-      fetchUsers()
+      debouncedFetchUsers()
     }
   }, [query])
 
