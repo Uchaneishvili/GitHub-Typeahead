@@ -3,18 +3,18 @@ import styles from './UserItem.module.css'
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
 
 const UserItem = ({ username, photoUrl }) => {
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const [loader, setLoader] = useState(false)
 
   useEffect(() => {
     const img = new Image()
     img.src = photoUrl
     img.onload = () => {
-      setImageLoaded(true)
+      setLoader(true)
     }
   }, [photoUrl])
   return (
     <>
-      {imageLoaded ? (
+      {loader ? (
         <li
           className={styles.userItem}
           onClick={() => {
