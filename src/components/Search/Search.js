@@ -25,6 +25,7 @@ const Search = () => {
 
   return (
     <div className={styles.container}>
+      <img src='./assets/Search.png' alt='search' />
       <div className={styles.innerContainer}>
         <input
           className={styles.searchInput}
