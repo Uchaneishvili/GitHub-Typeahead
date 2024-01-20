@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import styles from './Search.module.css'
 import { getUsers } from '../../services/UserService'
 import UserItem from '../UserItem/UserItem'
@@ -8,6 +8,7 @@ const Search = () => {
   const [query, setQuery] = useState('')
   const [users, setUsers] = useState([])
   const searchDebounce = useDebounce(query, 300)
+  const inputRef = useRef(null)
 
   const fetchUsers = useCallback(async () => {
     try {
@@ -25,19 +26,39 @@ const Search = () => {
     }
   }, [searchDebounce, fetchUsers])
 
+  const handleClear = () => {
+    if (query) {
+      setQuery('')
+      setUsers([])
+      inputRef.current.focus()
+    }
+  }
+
   return (
     <div className={styles.container}>
       <img src='./assets/Search.png' alt='search' />
       <div className={styles.innerContainer}>
-        <input
-          className={`${styles.searchInput} ${
-            users.length > 0 && styles.suggestActiveInput
-          }`}
-          type='text'
-          placeholder='Search GitHub users...'
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <div className={styles.searchInputContainer}>
+          <input
+            className={`${styles.searchInput} ${
+              users.length > 0 && styles.suggestActiveInput
+            }`}
+            ref={inputRef}
+            type='text'
+            placeholder='Search GitHub users...'
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+
+          <span
+            className={styles.searchInputIcon}
+            onClick={() => {
+              handleClear()
+            }}
+          >
+            {query ? <>&#10006;</> : <>&#128269;</>}
+          </span>
+        </div>
       </div>
       {users.length > 0 && (
         <div className={styles.innerContainer}>

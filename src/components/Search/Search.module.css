@@ -52,12 +52,34 @@
   width: 400px;
 }
 
+.searchInputContainer {
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.searchInputIcon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 /* Responsive styles */
 @media (max-width: 600px) {
   .searchInput,
-  .userItemContainer {
+  .searchInputContainer {
     width: 100%;
     padding: 12px;
+  }
+
+  .userItemContainer {
+    width: 100%;
+    padding: 0;
+  }
+
+  .searchInputIcon {
+    right: 10%;
   }
   .container > img {
     width: 250px;
