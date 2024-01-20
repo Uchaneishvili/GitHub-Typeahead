@@ -1,8 +1,22 @@
 .searchInput {
-  padding: 10px;
+  padding: 16px;
   font-size: 16px;
-  width: 400px;
-  margin-bottom: 20px;
+  width: 500px;
+  border-radius: 24px;
+  border: 1px solid #dfe1e5;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Add a smooth transition effect */
+}
+
+.searchInput:hover,
+.searchInput:focus {
+  box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+  outline: none;
+}
+
+.suggestActiveInput {
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
 }
 
 .userItemContainer {
@@ -12,11 +26,14 @@
   align-items: center;
   background-color: white;
   max-height: 300px;
+  border-radius: 0 0 24px 24px;
+  border: 1px solid #dfe1e5;
   overflow-y: auto;
   top: 350px;
-  padding: 10px;
-  width: 400px;
+  padding: 16px;
+  width: 500px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
 }
 
 .container {
@@ -40,7 +57,8 @@
 @media (max-width: 600px) {
   .searchInput,
   .userItemContainer {
-    width: 80%;
+    width: 100%;
+    padding: 12px;
   }
   .container > img {
     width: 250px;

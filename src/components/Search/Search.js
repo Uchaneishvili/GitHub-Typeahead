@@ -31,7 +31,9 @@ const Search = () => {
       <img src='./assets/Search.png' alt='search' />
       <div className={styles.innerContainer}>
         <input
-          className={styles.searchInput}
+          className={`${styles.searchInput} ${
+            users.length > 0 && styles.suggestActiveInput
+          }`}
           type='text'
           placeholder='Search GitHub users...'
           value={query}
