@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import styles from './Search.module.css'
 import { getUsers } from '../../services/UserService'
 import UserItem from '../UserItem/UserItem'
-import { useDebounceFn } from '../../hooks/Debounce'
+import useDebounce from '../../hooks/Debounce'
 
 const Search = () => {
   const [query, setQuery] = useState('')
   const [users, setUsers] = useState([])
+  const searchDebounce = useDebounce(query, 300)
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
-      const response = await getUsers(query)
+      const response = await getUsers(searchDebounce)
       const data = await response.json()
       setUsers(data.items)
     } catch (error) {
       console.error('Error fetching users:', error)
     }
-  }
-
-  const debouncedFetchUsers = useDebounceFn(fetchUsers, 300)
+  }, [searchDebounce])
 
   useEffect(() => {
-    if (query) {
-      debouncedFetchUsers()
+    if (searchDebounce) {
+      fetchUsers()
     }
-  }, [query])
+  }, [searchDebounce, fetchUsers])
 
   return (
     <div className={styles.container}>
