@@ -65,6 +65,25 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .searchInput {
+    padding: 10px;
+  }
+
+  .container > img {
+    width: 200px;
+  }
+  .innerContainer {
+    height: 20px;
+  }
+
+  .userItemContainer {
+    padding: 10px;
+    top: 180px;
+  }
+}
+
 /* Responsive styles */
 @media (max-width: 600px) {
   .searchInput,
