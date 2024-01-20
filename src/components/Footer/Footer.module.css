@@ -1,4 +1,4 @@
-.footer {
+.container {
   color: #1f2328;
   padding: 16px;
   text-align: center;
@@ -6,13 +6,18 @@
   height: 100%;
 }
 
-.container {
+.innerContainer {
   margin: 0 auto;
 }
 
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 0.1em;
+  }
+}
 /* Responsive styles */
 @media (max-width: 600px) {
-  .footer {
+  .container {
     padding: 6px;
   }
 }

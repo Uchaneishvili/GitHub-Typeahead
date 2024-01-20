@@ -71,16 +71,27 @@
     padding: 10px;
   }
 
-  .container > img {
-    width: 200px;
+  .mainImage {
+    height: 5%;
+    display: none;
   }
+
   .innerContainer {
     height: 20px;
   }
 
+  .mainImage + .innerContainer {
+    padding-top: 0.5rem;
+  }
+
+  .container > img {
+    width: 200px;
+  }
+
   .userItemContainer {
     padding: 10px;
-    top: 180px;
+    top: 38px;
+    max-height: 250px;
   }
 }
 

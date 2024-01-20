@@ -3,11 +3,11 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.innerContainer}>
         <p>&copy; 2024 Your Company. All rights reserved.</p>
       </div>
-    </footer>
+    </div>
   )
 }
 

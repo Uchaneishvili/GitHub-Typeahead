@@ -49,7 +49,11 @@ const Search = () => {
   return (
     <>
       <div className={styles.container}>
-        <img src='./assets/Search.png' alt='search' />
+        <img
+          src='./assets/Search.png'
+          alt='search'
+          className={users.length > 0 ? styles.mainImage : ''}
+        />
 
         <div className={styles.innerContainer}>
           <div className={styles.searchInputContainer}>

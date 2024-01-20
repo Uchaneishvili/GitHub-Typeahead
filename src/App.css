@@ -40,6 +40,12 @@ footer {
   background-color: #f6f8fa;
 }
 
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    padding: 0 5vw 10vw 5vw;
+  }
+}
+
 @media (max-width: 600px) {
   main {
     padding: 0 7vw 14vw 7vw;
