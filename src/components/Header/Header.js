@@ -13,7 +13,7 @@ const Header = () => {
           />
         </div>
         <div className={styles.titleContainer}>
-          <span>Github Typeahead</span>
+          <h4>Github Typeahead</h4>
         </div>
       </div>
     </div>

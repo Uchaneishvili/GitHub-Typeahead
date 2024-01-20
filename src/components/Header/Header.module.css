@@ -19,7 +19,7 @@
 }
 
 .titleContainer > span {
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (max-width: 600px) {
   .header {
@@ -28,7 +28,7 @@
 
   .logoContainer,
   .titleContainer {
-    padding: 2px;
+    padding: 5px;
   }
 
   .innerContainer {
