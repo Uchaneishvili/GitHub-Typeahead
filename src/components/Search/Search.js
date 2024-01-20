@@ -14,6 +14,11 @@ const Search = () => {
     try {
       const response = await getUsers(searchDebounce)
       const data = await response.json()
+
+      if (response.status !== 200) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`)
+      }
+
       setUsers(data.items)
     } catch (error) {
       console.error('Error fetching users:', error)
