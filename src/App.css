@@ -24,6 +24,10 @@ main {
   background-color: #f0f0f0;
 }
 
+footer {
+  background-color: #f6f8fa;
+}
+
 @media (max-width: 600px) {
   main {
     padding: 7vw;
