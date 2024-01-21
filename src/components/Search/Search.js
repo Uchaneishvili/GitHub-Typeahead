@@ -4,14 +4,16 @@ import { getUsers } from '../../services/UserService'
 import UserItem from '../UserItem/UserItem'
 import useDebounce from '../../hooks/Debounce'
 import SpinnerLoading from '../SpinnerLoading/SpinnerLoading'
+import SkeletonImageLoading from '../SkeletonImageLoading/SkeletonImageLoading'
 
 const Search = () => {
   const [query, setQuery] = useState('')
   const [users, setUsers] = useState([])
   const [loader, setLoader] = useState(false)
-  // To prevent multiple rapid requests, it's a better idea to use debounce.
-  const searchDebounce = useDebounce(query, 300)
+  const [imgLoaded, setImgLoaded] = useState(false)
   const inputRef = useRef(null)
+  const searchDebounce = useDebounce(query, 300)
+  // To prevent multiple rapid requests, it's a better idea to use debounce.
 
   const fetchUsers = useCallback(async () => {
     try {
@@ -38,6 +40,20 @@ const Search = () => {
     }
   }, [searchDebounce, fetchUsers])
 
+  useEffect(() => {
+    const img = new Image()
+    img.src = './assets/Search.png'
+
+    // Event handler: Triggered when the image successfully loads
+    img.onload = () => {
+      setImgLoaded(true)
+    }
+
+    return () => {
+      img.onload = null
+    }
+  }, [])
+
   const handleClear = () => {
     if (query) {
       setQuery('')
@@ -49,11 +65,22 @@ const Search = () => {
   return (
     <>
       <div className={styles.container}>
-        <img
-          src='./assets/Search.png'
-          alt='search'
-          className={users.length > 0 ? styles.mainImage : ''}
-        />
+        {imgLoaded ? (
+          <img
+            src='./assets/Search.png'
+            alt='search'
+            loading='lazy'
+            className={users.length > 0 ? styles.mainImage : ''}
+          />
+        ) : (
+          <div
+            className={
+              users.length > 0 ? styles.mainImage : styles.skeletonContainer
+            }
+          >
+            <SkeletonImageLoading className={'image'} />
+          </div>
+        )}
 
         <div className={styles.innerContainer}>
           <div className={styles.searchInputContainer}>

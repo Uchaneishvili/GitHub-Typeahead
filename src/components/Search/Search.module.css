@@ -66,6 +66,23 @@
   cursor: pointer;
 }
 
+.skeletonContainer {
+  padding: 22px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: #f3f3f3;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+}
+
 @media (min-width: 601px) and (max-width: 1024px) {
   .searchInput {
     padding: 10px;

@@ -3,7 +3,7 @@ import styles from './UserItem.module.css'
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
 
 const UserItem = ({ username, photoUrl }) => {
-  const [loader, setLoader] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const img = new Image()
@@ -11,7 +11,7 @@ const UserItem = ({ username, photoUrl }) => {
 
     // Event handler: Triggered when the image successfully loads
     img.onload = () => {
-      setLoader(true)
+      setLoaded(true)
     }
 
     return () => {
@@ -20,7 +20,7 @@ const UserItem = ({ username, photoUrl }) => {
   }, [photoUrl])
   return (
     <>
-      {loader ? (
+      {loaded ? (
         <li
           className={styles.userItem}
           onClick={() => {

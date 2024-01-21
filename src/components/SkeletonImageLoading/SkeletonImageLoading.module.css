@@ -1,0 +1,40 @@
+.logo,
+.image {
+  background-color: #f3f3f3;
+  animation: pulse 1.5s infinite;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.image {
+  width: 360px;
+  height: 260px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: #f3f3f3;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .image {
+    width: 140px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 600px) {
+  .image {
+    width: 210px;
+    height: 147.5px;
+  }
+}

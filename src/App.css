@@ -31,7 +31,7 @@ p {
 }
 
 main {
-  padding: 0 15px 30px 15px;
+  padding: 0 20px 40px 20px;
   min-height: calc(100vh - 200px);
   background-color: #f0f0f0;
 }
@@ -48,6 +48,6 @@ footer {
 
 @media (max-width: 600px) {
   main {
-    padding: 0 7vw 14vw 7vw;
+    padding: 0 8vw 16vw 8vw;
   }
 }
